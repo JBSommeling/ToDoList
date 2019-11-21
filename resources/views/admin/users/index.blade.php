@@ -29,10 +29,10 @@
                                         <a href="{{route('admin.user.edit', $user->id)}}"><button type="button" class="btn btn-primary float-left">Edit</button></a>
                                         @endcan
                                         @can('delete-users')
-                                        <form action="{{route('admin.user.destroy', $user->id)}}" method="POST" class="float-left">
+                                        <form action="{{ route('admin.user.destroy', $user->id) }}" method="POST" class="float-left">
                                             @csrf
                                             {{method_field('DELETE')}}
-                                        <button type="sumbit" class="btn btn-warning">Delete</button>
+                                        <button type="submit" class="btn btn-warning">Delete</button>
                                         </form>
                                         @endcan
                                     </td>

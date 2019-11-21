@@ -58,6 +58,7 @@ class UsersController extends Controller
 
     public function destroy(User $user)
     {
+
         if(Gate::denies('delete-users')){
             return redirect(route('admin.user.index'));
         }
@@ -65,6 +66,6 @@ class UsersController extends Controller
         $user->roles()->detach(); // removes all roles from the given user
         $user->delete();
 
-        return redirect()-route('admin.user.index'); //episode 8, het werkt nog niet helemaal goed.
+        return redirect('/admin/user');
     }
 }

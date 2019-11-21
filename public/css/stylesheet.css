@@ -1,3 +1,9 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+}
+
 #screen {
     position: absolute;
     top: 0;
@@ -7,14 +13,61 @@
     background-image: url("../img/to_do_list.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: 10 !important;
 }
 
-body{
-    height: 100%;
+#background{
+    position: absolute;
+    top: 0;
+    left: 0;
     min-height: 100%;
     min-width: 100%;
     background-image: url("../img/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: 2;
 }
 
+
+/*NAVBAR*/
+
+.navbar{
+    z-index: 5;
+}
+
+.white{
+    color: white !important;
+}
+
+.navbar li a{
+    color: white !important;
+}
+
+.navbar li{
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 15px;
+    padding: 0 20px;
+}
+
+.navbar li:hover{
+    background-color: black;
+    transition: 0.5s;
+}
+
+.navbar-brand{
+    background-color: rgba(0,0,0,0.5) !important;
+    border-radius: 15px;
+    padding: 0 20px;
+}
+
+.dropdown-menu{
+    background-color: rgba(0,0,0,0.5) !important;
+    border-radius: 15px;
+}
+
+.dropdown-menu :hover{
+    color: white;
+    background-color: rgba(0,0,0,0.5) !important;
+    border-radius: 15px;
+    transition: 0.5s;
+}

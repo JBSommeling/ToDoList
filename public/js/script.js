@@ -16,9 +16,4 @@ $("document").ready(function(){
         document.getElementById("screen").style.display = 'none';
         document.getElementById("navbar").style.display = 'block';
     }
-
-    //HOVER EFFECTS
-    $('.hover li').hover(function(){
-       $(this).animate()
-    });
 });

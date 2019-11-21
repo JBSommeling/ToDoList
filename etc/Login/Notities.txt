@@ -1,0 +1,3 @@
+https://nodejs.org/en/ voor npm install
+
+https://www.youtube.com/watch?v=McSMB1QLxUI voor admin gedeelte en user login compleet

@@ -1,0 +1,3 @@
+https://medium.com/@eduardoarandah/how-to-configure-permissions-in-laravel-76aa5a975cc3
+
+https://medium.com/swlh/laravel-authorization-and-roles-permission-management-6d8f2043ea20

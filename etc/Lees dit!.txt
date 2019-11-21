@@ -1,0 +1,2 @@
+one to one databse relationship -> you dont have to create another table for it, you can if you want. Unique constraint needed on foreign key, to force one to one if
+multiple tables. Or else you have one to many db relationship.

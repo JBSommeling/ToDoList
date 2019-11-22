@@ -15,15 +15,18 @@ class ListsTableSeeder extends Seeder
     {
         Tasklist::truncate();
         DB::table('Tasklists')->insert([
-            'name' => 'testlist1'
+            'list_name' => 'testlist1',
+            'user_id' => '1'
         ]);
 
         DB::table('Tasklists')->insert([
-            'name' => 'testlist2'
+            'list_name' => 'testlist2',
+            'user_id' => '1'
         ]);
 
         DB::table('Tasklists')->insert([
-            'name' => 'testlist3'
+            'list_name' => 'testlist3',
+            'user_id' => '1'
         ]);
     }
 }

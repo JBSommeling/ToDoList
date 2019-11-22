@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Tasklist;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -19,6 +21,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $lists = Tasklist::get_lists_by_user(Auth::user()->id );
+        return view('home', compact('lists'));
     }
 }

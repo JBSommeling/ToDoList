@@ -107,7 +107,7 @@ html, body {
 }
 
 .hiddenMenu{
-    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.5);
     display: inline-block;
     border-radius: 15px;
     overflow: auto;
@@ -117,7 +117,7 @@ html, body {
     right: -40rem;
     transition: 0.5s;
     height: 50vh;
-    z-index: 5 !important;
+    z-index: 7 !important;
 
 }
 
@@ -127,7 +127,7 @@ html, body {
 }
 
 .fa-plus-circle, .fa-minus-circle{
-    color: grey;
+    color: limegreen;
     font-size: 5rem;
 }
 
@@ -142,12 +142,35 @@ html, body {
 }
 
 .fa-chevron-right{
-    float: right;
     color: grey;
     font-size: 5rem;
+}
+
+.arrow{
+    float: right;
+    position: absolute;
+    top: 25rem;
+    right: 0;
+    z-index: 6 !important;
 }
 
 .hover:hover{
     color: white;
     transition: 0.5s;
+}
+
+.buttons{
+    margin: 2rem 0;
+}
+
+.buttonText{
+    color: white;
+    font-weight: 500;
+    margin-top: 3.5rem;
+    margin-left: 1rem;
+}
+
+/*HOMECONTENT*/
+.white{
+    color: white !important;
 }

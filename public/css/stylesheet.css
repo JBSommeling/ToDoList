@@ -1,7 +1,8 @@
 html, body {
     height: 100%;
     margin: 0;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Nanum Gothic', sans-serif;
+    overflow: hidden;
 }
 
 #screen {
@@ -32,7 +33,7 @@ html, body {
 /*NAVBAR*/
 
 .navbar{
-    z-index: 5;
+    z-index: 3;
 }
 
 .white{
@@ -70,4 +71,49 @@ html, body {
     background-color: rgba(0,0,0,0.5) !important;
     border-radius: 15px;
     transition: 0.5s;
+}
+
+.container-fluid{
+    min-height: 100%;
+}
+
+
+/*TASKLISTSLIST*/
+#taskListsList{
+        background-color: rgba(0,0,0,0.5);
+        display: inline-block;
+        border-radius: 15px;
+        z-index: 15;
+        overflow: auto;
+        overflow-y: auto;
+        top: 2rem;
+        transition: 0.5s;
+        height: 92vh;
+}
+
+#menu{
+    background-color: rgba(0,0,0,0.5);
+    display: inline-block;
+    border-radius: 15px;
+    z-index: 15;
+    overflow: auto;
+    overflow-y: auto;
+    top: 2rem;
+    transition: 0.5s;
+    height: 50vh;
+}
+
+#hiddenMenu{
+    background-color: rgba(0,0,0,0.5);
+    display: inline-block;
+    border-radius: 15px;
+    z-index: 15;
+    overflow: auto;
+    overflow-y: auto;
+    position: absolute;
+    top: 3.5rem;
+    right: 3.1rem;
+    transition: 0.5s;
+    height: 50vh;
+
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Tasklist;
 
 class ListsTableSeeder extends Seeder
 {
@@ -12,15 +13,16 @@ class ListsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('lists')->insert([
+        Tasklist::truncate();
+        DB::table('Tasklists')->insert([
             'name' => 'testlist1'
         ]);
 
-        DB::table('lists')->insert([
+        DB::table('Tasklists')->insert([
             'name' => 'testlist2'
         ]);
 
-        DB::table('lists')->insert([
+        DB::table('Tasklists')->insert([
             'name' => 'testlist3'
         ]);
     }

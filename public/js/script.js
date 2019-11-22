@@ -1,6 +1,13 @@
+function hideMenu(){
+    document.getElementById('hiddenMenu').className = "hiddenMenu";
+}
+
+function showMenu(){
+    document.getElementById("hiddenMenu").className = "hiddenMenu active";
+}
+
 
 $("document").ready(function(){
-
     // MAIN SCREEN
     if (readCookie('showScreen') != "true") {
         document.getElementById("navbar").style.display = 'none';

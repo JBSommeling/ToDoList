@@ -33,7 +33,7 @@ html, body {
 /*NAVBAR*/
 
 .navbar{
-    z-index: 3;
+    z-index: 3!important;
 }
 
 .white{
@@ -83,37 +83,71 @@ html, body {
         background-color: rgba(0,0,0,0.5);
         display: inline-block;
         border-radius: 15px;
-        z-index: 15;
         overflow: auto;
         overflow-y: auto;
         top: 2rem;
         transition: 0.5s;
         height: 92vh;
+        z-index: 5 !important;
+
 }
 
+
+/*MENU*/
 #menu{
     background-color: rgba(0,0,0,0.5);
     display: inline-block;
     border-radius: 15px;
-    z-index: 15;
     overflow: auto;
     overflow-y: auto;
     top: 2rem;
     transition: 0.5s;
     height: 50vh;
+    z-index: 5 !important;
 }
 
-#hiddenMenu{
-    background-color: rgba(0,0,0,0.5);
+.hiddenMenu{
+    background-color: rgb(0,0,0);
     display: inline-block;
     border-radius: 15px;
-    z-index: 15;
     overflow: auto;
     overflow-y: auto;
     position: absolute;
     top: 3.5rem;
-    right: 3.1rem;
+    right: -40rem;
     transition: 0.5s;
     height: 50vh;
+    z-index: 5 !important;
 
+}
+
+.hiddenMenu.active{
+    position: absolute;
+    right: 0;
+}
+
+.fa-plus-circle, .fa-minus-circle{
+    color: grey;
+    font-size: 5rem;
+}
+
+.buttonHiddenMenu{
+    margin: 2rem 0;
+}
+
+.fa-times-circle{
+    float: left;
+    color: orange;
+    margin: 10px 5px;
+}
+
+.fa-chevron-right{
+    float: right;
+    color: grey;
+    font-size: 5rem;
+}
+
+.hover:hover{
+    color: white;
+    transition: 0.5s;
 }

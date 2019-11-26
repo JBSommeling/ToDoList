@@ -14,4 +14,9 @@ class Tasklist extends Model
             ->get();
         return $lists;
     }
+
+    public static function destroy($ids)
+    {
+        return DB::table('tasklists')->where('list_id', '=', $ids)->delete();
+    }
 }

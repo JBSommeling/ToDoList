@@ -12,16 +12,20 @@
                     <tbody>
                     {{ $count = 1 }}
                     @foreach($lists as $list)
-                        <form action="#" method="POST">
                             <tr>
                                 <th scope="row">{{ $count }}</th>
-                                <td><input type="checkbox" name="task_checked[]"></td>
                                 <td><a class="btn white" href="#">{{ $list->name }}</a></td>
                                 <td><a class="btn white" href="#">{{ $list->list_name }}</a></td>
-                                <td><a class="btn" href="#"><i class="far fa-eye white"></i></a></td>
+                                <td>
+                                    <a class="btn" href=""><i class="far fa-eye white"></i></a>
+                                    <form action="{{ route('tasklist.destroy', $list->list_id) }}" method="POST" class="float-right">
+                                        @csrf
+                                        {{method_field('DELETE')}}
+                                        <button type="submit" onclick='return validate()' class="btn btn-warning"><i class="fas fa-trash-alt white"></i></button>
+                                    </form>
+                                </td>
                                 {{ $count++ }}
                             </tr>
-                        </form>
                     @endforeach
                     </tbody>
                 </table>
@@ -34,10 +38,10 @@
                     <i class="fas fa-plus-circle buttons hover"></i>
                     <h3 class="buttonText d-md-none d-lg-inline-block">Lijst toevoegen</h3>
                 </div>
-                <div class="row col-12">
-                    <i class="fas fa-minus-circle buttons hover"></i>
-                    <h3 class="buttonText d-md-none d-lg-inline-block">Lijsten verwijderen</h3>
-                </div>
+{{--                <div class="row col-12">--}}
+{{--                    <i class="fas fa-minus-circle buttons hover"></i>--}}
+{{--                    <h3 class="buttonText d-md-none d-lg-inline-block">Lijsten verwijderen</h3>--}}
+{{--                </div>--}}
             </div>
         </div>
 
@@ -47,7 +51,7 @@
             <i class="fas fa-times-circle hover" onclick="hideMenu()"></i>
             <div class="buttonsHiddenMenu">
                 <i class="fas fa-plus-circle col-12 hover buttonHiddenMenu"></i>
-                <i class="fas fa-minus-circle col-12 hover buttonHiddenMenu"></i>
+{{--                <i class="fas fa-minus-circle col-12 hover buttonHiddenMenu"></i>--}}
             </div>
         </div>
     </div>

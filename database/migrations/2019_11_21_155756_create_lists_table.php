@@ -14,7 +14,7 @@ class CreateListsTable extends Migration
     public function up()
     {
         Schema::create('tasklists', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('list_id');
             $table->bigInteger('user_id');
             $table->string('list_name');
             $table->timestamps();

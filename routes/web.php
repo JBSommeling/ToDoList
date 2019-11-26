@@ -24,9 +24,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/user', 'UsersController', ['except' => ['show', 'create' , 'store']]); //Zorgt ervoor dat alle CRUD functies ge'rout' zijn.
+});
 
+Route::namespace("Tasklist")->middleware('can:manage-guests')->group(function(){
+    route::resource('/tasklist', 'TasklistsController');
 });
 // namespace admin zorgt ervoor dat we geen Admin ergens voor meer hoeven te zetten bij controller.
 //Prefix admin zorgt er voor dat we geen admin meer voorhoeven te zetten bij links.
 //admin. zorgt ervoor dat er bij de name admin. voor komt te staan.
-//Dit geld voor alle routes binnen de functie
+//group. Dit geld voor alle routes binnen de functie

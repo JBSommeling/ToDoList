@@ -21,7 +21,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $lists = Tasklist::get_lists_by_user(Auth::user()->id );
+        if (isset(Auth::user()->id)) {
+            $user_id = Auth::user()->id;
+        }
+        else{
+            $user_id = null;
+        }
+        $lists = Tasklist::get_lists_by_user($user_id);
         return view('home', compact('lists'));
     }
 }

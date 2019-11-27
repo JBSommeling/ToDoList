@@ -15,6 +15,12 @@ class Tasklist extends Model
         return $lists;
     }
 
+    public static function create($list_name, $user_id){
+        DB::table('tasklists')->insert(
+            ['list_name' => $list_name, 'user_id' => $user_id]
+        );
+    }
+
     public static function destroy($ids)
     {
         return DB::table('tasklists')->where('list_id', '=', $ids)->delete();

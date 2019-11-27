@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Tasklist;
 
 use App\Http\Controllers\Controller;
+use App\Task;
 use Illuminate\Http\Request;
 use App\Tasklist;
 
@@ -23,9 +24,12 @@ class TasklistsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $user_id = $request->user_id;
+        $list_name = $request->list_name;
+        dd($list_name);
+        Tasklist::create($list_name, $user_id);
     }
 
     /**

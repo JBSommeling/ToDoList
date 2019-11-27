@@ -18,8 +18,8 @@
                         <button type="submit" onclick='return validate()' class="btn btn-warning"><i class="fas fa-trash-alt white"></i></button>
                     </form>
                 </td>
-                {{ $count++ }}
             </tr>
+            {{ $count++ }}
         @endforeach
         </tbody>
     </table>

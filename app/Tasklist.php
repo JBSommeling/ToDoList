@@ -25,4 +25,10 @@ class Tasklist extends Model
     {
         return DB::table('tasklists')->where('list_id', '=', $ids)->delete();
     }
+
+    public static function update_list($list_id, $list_name){
+        DB::table('tasklists')
+            ->where('list_id', $list_id)
+            ->update(['list_name' => $list_name]);
+    }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Task;
 use Illuminate\Http\Request;
 use App\Tasklist;
+use Illuminate\Support\Facades\Auth;
 
 class TasklistsController extends Controller
 {
@@ -28,7 +29,6 @@ class TasklistsController extends Controller
     {
         $user_id = $request->user_id;
         $list_name = $request->list_name;
-        dd($list_name);
         Tasklist::create($list_name, $user_id);
     }
 
@@ -74,7 +74,9 @@ class TasklistsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $list_name = $request->edit_list_name;
+        Tasklist::update_list($list_name, $id);
+        return redirect()->route('home');
     }
 
     /**
@@ -87,5 +89,16 @@ class TasklistsController extends Controller
     {
         Tasklist::destroy($id);
         return redirect()->route('home');
+    }
+
+    public function load(){
+        if (isset(Auth::user()->id)) {
+            $user_id = Auth::user()->id;
+        }
+        else{
+            $user_id = null;
+        }
+        $lists = Tasklist::get_lists_by_user($user_id);
+        return view('tasklist/tasklist', compact('lists'));
     }
 }

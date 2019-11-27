@@ -15,7 +15,7 @@
                             <tr>
                                 <th scope="row">{{ $count }}</th>
                                 <td><a class="btn white" href="#">{{ $list->name }}</a></td>
-                                <td><a class="btn white" href="#">{{ $list->list_name }}</a></td>
+                                <td><a class="btn white"  href="#" data-toggle="modal" data-target="#edit_list_modal_{{$list->list_id}}">{{ $list->list_name }}</a></td>
                                 <td>
                                     <a class="btn" href=""><i class="far fa-eye white"></i></a>
                                     <form action="{{ route('tasklist.destroy', $list->list_id) }}" method="POST" class="float-right">
@@ -24,8 +24,39 @@
                                         <button type="submit" onclick='return validate()' class="btn btn-warning"><i class="fas fa-trash-alt white"></i></button>
                                     </form>
                                 </td>
-                                {{ $count++ }}
+
                             </tr>
+
+                            <div class="modal fade" id="edit_list_modal_{{$list->list_id}}" tabindex="-1" role="dialog" aria-labelledby="Title" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="edit_list_modal_Title">Naam van lijst wijzigen</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="{{ route('tasklist.update', $list->list_id) }}" method="POST">
+                                                @csrf
+                                                {{ method_field('PUT') }}
+                                                <div class="form-group">
+                                                    <label for="edit_list_name">Naam van lijst:</label>
+                                                    <input type="text" id="edit_list_name" name="edit_list_name" class="form-control" value="{{ $list->list_name }}">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="submit" class="btn btn-primary" id="edit_button_{{$count}}" value="Wijzigen">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{ $count++ }}
                     @endforeach
                     </tbody>
                 </table>
@@ -79,7 +110,10 @@
                                 <label for="list_name">Naam van lijst:</label>
                                 <input type="text" id="list_name" name="list_name" class="form-control">
                             </div>
-                        <input type="submit" id="create_button" value="Maken">
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary" id="create_button" value="Maken">
+                            </div>
+
                     </form>
                 </div>
                 <div class="modal-footer">

@@ -103,7 +103,7 @@ html, body {
     top: 2rem;
     transition: 0.5s;
     height: 50vh;
-    z-index: 5 !important;
+    z-index: 2 !important;
 }
 
 .hiddenMenu{

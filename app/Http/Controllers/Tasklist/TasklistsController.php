@@ -29,7 +29,18 @@ class TasklistsController extends Controller
     {
         $user_id = $request->user_id;
         $list_name = $request->list_name;
-        Tasklist::create($list_name, $user_id);
+
+        $validatedData = $request->validate([
+            'list_name' => 'required'
+        ],
+            [
+                'list_name.required' => 'U moet een naam invoeren'
+            ]);
+
+        if ($validatedData){
+            Tasklist::create($list_name, $user_id);
+        }
+
     }
 
     /**
@@ -60,9 +71,10 @@ class TasklistsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($list_id)
     {
-        //
+        $tasklist = Tasklist::get_list_by_id($list_id);
+        return view('tasklist/edit', compact('tasklist'));
     }
 
     /**

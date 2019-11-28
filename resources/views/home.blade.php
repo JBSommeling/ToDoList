@@ -15,7 +15,7 @@
                             <tr>
                                 <th scope="row">{{ $count }}</th>
                                 <td><a class="btn white" href="#">{{ $list->name }}</a></td>
-                                <td><a class="btn white"  href="#" data-toggle="modal" data-target="#edit_list_modal_{{$list->list_id}}">{{ $list->list_name }}</a></td>
+                                <td><a class="btn white"  href="{{route('tasklist.edit', $list->list_id)}}">{{ $list->list_name }}</a></td>
                                 <td>
                                     <a class="btn" href=""><i class="far fa-eye white"></i></a>
                                     <form action="{{ route('tasklist.destroy', $list->list_id) }}" method="POST" class="float-right">
@@ -77,7 +77,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="list_name">Naam van lijst:</label>
-                                <input type="text" id="list_name" name="list_name" class="form-control">
+                                <input type="text" id="list_name" name="list_name" class="form-control @error('list_name') is-invalid @enderror">
+                                @error('list_name')
+                                <div id="errorMessageBox" class="alert alert-danger mt-4">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary" id="create_button" value="Maken">

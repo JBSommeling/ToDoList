@@ -15,6 +15,14 @@ class Tasklist extends Model
         return $lists;
     }
 
+    public static function get_list_by_id($id){
+        $list = DB::table('tasklists')
+            ->where('list_id', $id)
+            ->join('users', 'tasklists.user_id', '=', 'users.id')
+            ->get();
+        return $list;
+    }
+
     public static function create($list_name, $user_id){
         DB::table('tasklists')->insert(
             ['list_name' => $list_name, 'user_id' => $user_id]

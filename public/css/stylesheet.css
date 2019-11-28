@@ -178,3 +178,9 @@ html, body {
 .modal-backdrop.fade.show{
     z-index: 1;
 }
+
+/*BOOTSTRAP RESTYLE*/
+.jumbotron{
+    margin-top: 2rem !important;
+    background-color: rgba(0,0,0, 0.5) !important;
+}

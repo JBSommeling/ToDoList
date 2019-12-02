@@ -17,21 +17,28 @@ class TasksTableSeeder extends Seeder
         DB::table('tasks')->insert([
             'list_id' => '1',
             'user_id' => '1',
-            'name' => 'testtask',
+            'task_name' => 'testtask',
             'is_done' => true
         ]);
 
         DB::table('tasks')->insert([
             'list_id' => '1',
             'user_id' => '1',
-            'name' => 'testtask2',
+            'task_name' => 'testtask2',
             'is_done' => true
         ]);
 
         DB::table('tasks')->insert([
             'list_id' => '1',
             'user_id' => '1',
-            'name' => 'testtask3',
+            'task_name' => 'testtask3',
+            'is_done' => false
+        ]);
+
+        DB::table('tasks')->insert([
+            'list_id' => '2',
+            'user_id' => '1',
+            'task_name' => 'Test task form list 2',
             'is_done' => false
         ]);
 

@@ -33,6 +33,7 @@ Route::namespace("Tasklist")->middleware('can:manage-guests')->group(function(){
 
 Route::namespace('Task')->middleware('can:manage-guests')->group(function(){
    route::resource('/task', 'TaskController');
+   route::get('/task/show', 'TaskController@show')->name('task.show');
 });
 
 

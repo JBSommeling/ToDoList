@@ -45,11 +45,20 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($ids)
+    public function show()
     {
-        $tasks = Task::get_tasks_by_user_id_and_tasklist_id($ids['user_id'], $ids['list_id']);
-        dd('testphp ');
-        return view('/task/show');
+        function validation($data)
+        {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+
+        $user_id = validation($_GET['user_id']);
+        $list_id = validation($_GET['list_id']);
+        $tasks = Task::get_tasks_by_user_id_and_tasklist_id($user_id, $list_id);
+        return view('/task/show', compact('tasks'));
     }
 
     /**

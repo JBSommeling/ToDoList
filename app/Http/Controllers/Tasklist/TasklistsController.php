@@ -87,8 +87,17 @@ class TasklistsController extends Controller
     public function update(Request $request, $id)
     {
         $list_name = $request->edit_list_name;
-        Tasklist::update_list($list_name, $id);
-        return redirect()->route('home');
+        $validatedData = $request->validate([
+            'edit_list_name' => 'required'
+        ],
+            [
+                'edit_list_name.required' => 'U moet een naam invoeren'
+            ]);
+
+        if ($validatedData) {
+            Tasklist::update_list($id, $list_name);
+            return redirect()->route('home');
+        }
     }
 
     /**

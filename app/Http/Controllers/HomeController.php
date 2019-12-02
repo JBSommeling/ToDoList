@@ -28,6 +28,8 @@ class HomeController extends Controller
             $user_id = null;
         }
         $lists = Tasklist::get_lists_by_user($user_id);
+
+
         return view('home', compact('lists'));
     }
 }

@@ -17,7 +17,7 @@
                                 <td><a class="btn white" href="#">{{ $list->name }}</a></td>
                                 <td><a class="btn white"  href="{{route('tasklist.edit', $list->list_id)}}">{{ $list->list_name }}</a></td>
                                 <td>
-                                    <a class="btn" href=""><i class="far fa-eye white"></i></a>
+                                    <a class="btn" href="{{ route('task.show', $list->user_id) }}"><i class="far fa-eye white"></i></a>
                                     <form action="{{ route('tasklist.destroy', $list->list_id) }}" method="POST" class="float-right">
                                         @csrf
                                         {{method_field('DELETE')}}
@@ -49,7 +49,7 @@
         <div id="hiddenMenu" class="col-6 col-sm-4 d-sm-inline-block d-md-none hiddenMenu">
             <i class="fas fa-times-circle hover" onclick="hideMenu()"></i>
             <div class="buttonsHiddenMenu">
-                <i class="fas fa-plus-circle col-12 hover buttonHiddenMenu"></i>
+                <i class="fas fa-plus-circle col-12 hover buttonHiddenMenu" data-toggle="modal" data-target="#add_list_modal"></i>
 {{--                <i class="fas fa-minus-circle col-12 hover buttonHiddenMenu"></i>--}}
             </div>
         </div>

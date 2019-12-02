@@ -30,6 +30,12 @@ Route::namespace("Tasklist")->middleware('can:manage-guests')->group(function(){
     route::resource('/tasklist', 'TasklistsController');
     route::get('/tasklist/lists/load', 'TasklistsController@load')->name('tasklist.lists.load');
 });
+
+Route::namespace('Task')->middleware('can:manage-guests')->group(function(){
+   route::resource('/task', 'TaskController');
+});
+
+
 // namespace admin zorgt ervoor dat we geen Admin ergens voor meer hoeven te zetten bij controller.
 //Prefix admin zorgt er voor dat we geen admin meer voorhoeven te zetten bij links.
 //admin. zorgt ervoor dat er bij de name admin. voor komt te staan.

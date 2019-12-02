@@ -10,8 +10,24 @@ function validate(){
    return confirm('Weet u zeker dat u deze lijst wilt verwijderen?');
 }
 
+function moveMessageBox(typeOfBox) {
+    $('.'+typeOfBox).animate({marginLeft: '100px', marginRight: '-100px'}, 200);
+    $('.'+typeOfBox).animate({marginLeft: '0px', marginRight: '0px'}, 200);
+    $('.'+typeOfBox).animate({marginLeft: '100px', marginRight: '-100px'}, 200);
+    $('.'+typeOfBox).animate({marginLeft: '0px', marginRight: '0px'}, 200);
+}
+
+function toggleFeedbackBox(typeOfBox){
+    $('.'+typeOfBox).slideToggle("4000");
+    $('.'+typeOfBox).delay('4000').slideToggle('4000');
+}
+
 
 $("document").ready(function(){
+    // MESSAGEBOXES
+    moveMessageBox('alert-danger');
+    toggleFeedbackBox('alert-success');
+
     // MAIN SCREEN
     if (readCookie('showScreen') != "true") {
         document.getElementById("navbar").style.display = 'none';

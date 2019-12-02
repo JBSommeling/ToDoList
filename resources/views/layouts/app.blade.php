@@ -25,6 +25,7 @@
 </head>
 <body>
     <div id="app">
+
         <nav class="navbar navbar-expand-md navbar-light bg-transparent" id="navbar">
             <div class="container">
                 <a class="navbar-brand white" href="{{ url('/') }}">
@@ -86,7 +87,9 @@
             @yield('content')
         </main>
     </div>
-
+    @if(isset($_GET['feedback']) && $_GET['feedback'] == 'edit_name_success')
+    <div class="alert alert-success">Wijziging voltooid.</div>
+    @endif
     <script src="{{ asset('js/cookie.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
 </body>

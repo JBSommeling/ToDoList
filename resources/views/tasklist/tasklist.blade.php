@@ -9,9 +9,9 @@
             <tr>
                 <th scope="row">{{ $count }}</th>
                 <td><a class="btn white" href="#">{{ $list->name }}</a></td>
-                <td><a class="btn white" href="#">{{ $list->list_name }}</a></td>
+                <td><a class="btn white"  href="{{route('tasklist.edit', $list->list_id)}}">{{ $list->list_name }}</a></td>
                 <td>
-                    <a class="btn" href=""><i class="far fa-eye white"></i></a>
+                    <a class="btn" href="{{ route('task.show', $list->user_id) }}"><i class="far fa-eye white"></i></a>
                     <form action="{{ route('tasklist.destroy', $list->list_id) }}" method="POST" class="float-right">
                         @csrf
                         {{method_field('DELETE')}}

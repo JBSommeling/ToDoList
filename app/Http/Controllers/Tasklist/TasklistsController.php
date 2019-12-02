@@ -96,7 +96,8 @@ class TasklistsController extends Controller
 
         if ($validatedData) {
             Tasklist::update_list($id, $list_name);
-            return redirect()->route('home');
+            $feedback = 'edit_name_success';
+            return redirect()->route('home', compact('feedback'));
         }
     }
 

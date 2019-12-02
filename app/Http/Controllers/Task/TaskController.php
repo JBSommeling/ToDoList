@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Task;
 
 use App\Http\Controllers\Controller;
+use App\Task;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -44,8 +45,10 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($ids)
     {
+        $tasks = Task::get_tasks_by_user_id_and_tasklist_id($ids['user_id'], $ids['list_id']);
+        dd('testphp ');
         return view('/task/show');
     }
 

@@ -18,7 +18,7 @@ function moveMessageBox(typeOfBox) {
 }
 
 function toggleFeedbackBox(typeOfBox){
-    $('.'+typeOfBox).delay('4000').slideToggle('4000');
+    $('.'+typeOfBox).delay('4000').slideUp('4000');
 }
 
 

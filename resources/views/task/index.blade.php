@@ -7,25 +7,25 @@
             @can('manage-guests')
                 <table class="mt-4 table table-dark bg-transparent">
                     <thead>
-
+                    <h3 class="white mt-4">Taken</h3>
                     </thead>
                     <tbody>
-                    {{ $count = 1}}
+                    <?php $count=1 ?>
+
                     @foreach($tasks as $task)
                         <tr>
                             <th scope="row">{{ $count }}</th>
                             <td><a class="btn white" href="#">{{ $task->name }}</a></td>
-                            <td><a class="btn white"  href="">{{ $task->task_name }}</a></td>
+                            <td><a class="btn white"  href="">@if($task->is_done == 1) <strike>{{ $task->task_name }}</strike> @else {{$task->task_name}} @endif</a></td>
                             <td>
                                 <a class="btn" href=""><i class="far fa-eye white"></i></a>
-                                <form action="{{ route('tasklist.destroy', $task->list_id) }}" method="POST" class="float-right">
+                                <form action="" method="POST" class="float-right">
                                     @csrf
-                                    {{method_field('DELETE')}}
-                                    <button type="submit" onclick='return validate()' class="btn btn-warning"><i class="fas fa-trash-alt white"></i></button>
+                                    <button type="submit" onclick='return validate("taak")' class="btn btn-warning"><i class="fas fa-trash-alt white"></i></button>
                                 </form>
                             </td>
                         </tr>
-                        {{ $count++ }}
+                        <?php $count++ ?>
                     @endforeach
                     </tbody>
                 </table>

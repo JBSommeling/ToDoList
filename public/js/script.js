@@ -6,8 +6,8 @@ function showMenu(){
     document.getElementById("hiddenMenu").className = "hiddenMenu active";
 }
 
-function validate(){
-   return confirm('Weet u zeker dat u deze lijst wilt verwijderen?');
+function validate(job){
+   return confirm('Weet u zeker dat u deze '+job+' wilt verwijderen?');
 }
 
 function moveMessageBox(typeOfBox) {

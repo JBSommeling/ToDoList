@@ -9,16 +9,16 @@
             {{ method_field('PUT') }}
 
             <div class="form-group">
+                <label for="edit_list_name" class="white">Naam van lijst wijzigen: </label>
                 <input type="text" class="form-control @error('edit_list_name') is-invalid @enderror" name="edit_list_name" id="edit_list_name"  value="{{ $tasklist[0]->list_name }}">
             </div>
             @error('edit_list_name')
             <div id="errorMessageBox" class="alert alert-danger mt-4">{{ $message }}</div>
             @enderror
             <button type="submit" class="btn btn-primary">
-                Update
+                Wijzig naam
             </button>
         </form>
     </div>
 </div>
-
 @endsection

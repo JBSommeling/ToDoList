@@ -34,6 +34,7 @@ Route::namespace("Tasklist")->middleware('can:manage-guests')->group(function(){
 Route::namespace('Task')->middleware('can:manage-guests')->group(function(){
    route::resource('/task', 'TaskController');
    route::get('/task/index/{user_id}/{list_id}', 'TaskController@index')->name('task.index');
+   route::put('/task/{task}', 'TaskController@update')->name('task.update');
    route::delete('/task/{task}/{user_id}/{list_id}', 'TaskController@destroy')->name('task.destroy');
 });
 

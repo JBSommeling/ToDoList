@@ -46,10 +46,9 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        $task = Task::get_task($id);
-        return view('/task/show', compact('task'));
+
     }
 
     /**
@@ -60,7 +59,8 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        //
+        $task = Task::get_task($id);
+        return view('task.edit', compact('task'));
     }
 
     /**
@@ -72,7 +72,7 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect()->route('home');
     }
 
     /**

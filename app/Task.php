@@ -11,4 +11,16 @@ class Task extends Model
         $tasks = DB::select("SELECT * FROM `tasks` LEFT JOIN users ON tasks.user_id = tasks.user_id WHERE users.id = ? && list_id = ?", [$user_id, $list_id]);
         return $tasks;
     }
+
+    public static function get_task($id){
+        $task = DB::table('tasks')->where('task_id', '=', $id)->get();
+        return $task;
+    }
+
+    public static function destroy($ids)
+    {
+        return DB::table('tasks')->where('task_id', '=', $ids)->delete();
+    }
+
+
 }

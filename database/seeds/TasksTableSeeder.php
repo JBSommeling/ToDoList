@@ -18,6 +18,7 @@ class TasksTableSeeder extends Seeder
             'list_id' => '1',
             'user_id' => '1',
             'task_name' => 'testtask',
+            'task_description' => 'testdescription',
             'is_done' => true
         ]);
 
@@ -25,6 +26,7 @@ class TasksTableSeeder extends Seeder
             'list_id' => '1',
             'user_id' => '1',
             'task_name' => 'testtask2',
+            'task_description' => 'testdescription',
             'is_done' => true
         ]);
 
@@ -32,6 +34,7 @@ class TasksTableSeeder extends Seeder
             'list_id' => '1',
             'user_id' => '1',
             'task_name' => 'testtask3',
+            'task_description' => 'testdescription',
             'is_done' => false
         ]);
 
@@ -39,6 +42,7 @@ class TasksTableSeeder extends Seeder
             'list_id' => '2',
             'user_id' => '1',
             'task_name' => 'Test task form list 2',
+            'task_description' => 'testdescription',
             'is_done' => false
         ]);
 

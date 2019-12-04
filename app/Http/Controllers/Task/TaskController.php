@@ -46,9 +46,10 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        //
+        $task = Task::get_task($id);
+        return view('/task/show', compact('task'));
     }
 
     /**
@@ -80,8 +81,9 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, $user_id, $list_id)
     {
-        //
+        Task::destroy($id);
+        return redirect()->route('task.index', compact('user_id', 'list_id'));
     }
 }

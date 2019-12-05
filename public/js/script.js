@@ -63,4 +63,26 @@ $("document").ready(function(){
         });
     });
 
+    // CREATE TASK
+    $('#create_task_button').click(function(e){
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        var task_name = $('#task_name').val();
+        var user_id = $('#user_id').val();
+        var list_id = $('#list_id').val();
+        var task_description = $('#task_description').val();
+        e.preventDefault();
+        $.ajax({
+            url: '/task',
+            data: {task_name: task_name, user_id: user_id , list_id: list_id, task_description: task_description, _token: CSRF_TOKEN},
+            dataType: 'text',
+            type: 'POST',
+            success: function (data) {
+                //$("#taskList").load();
+            },
+            error: function (data) {
+                alert('error');
+            }
+        });
+    });
+
 });

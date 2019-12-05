@@ -17,6 +17,18 @@ class Task extends Model
         return $task;
     }
 
+    public static function updateTask($id, $task_name, $task_description, $is_done){
+        $task = DB::table('tasks')
+            ->where('task_id', $id)
+            ->update(['task_name' => $task_name, 'task_description' => $task_description, "is_done" => $is_done]);
+    }
+
+    public static function store($task_name, $user_id, $list_id, $task_description){
+        $task = DB::table('tasks')->insert(
+            ['task_name' => $task_name, 'user_id' => $user_id, 'list_id' => $list_id, 'task_description' => $task_description]
+        );
+    }
+
     public static function destroy($ids)
     {
         return DB::table('tasks')->where('task_id', '=', $ids)->delete();

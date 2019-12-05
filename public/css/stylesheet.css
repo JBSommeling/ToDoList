@@ -79,7 +79,7 @@ html, body {
 
 
 /*TASKLISTSLIST*/
-#taskListsList{
+#taskListsList, #taskList{
         background-color: rgba(0,0,0,0.5);
         display: inline-block;
         border-radius: 15px;

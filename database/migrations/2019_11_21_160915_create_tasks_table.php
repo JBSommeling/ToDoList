@@ -19,7 +19,7 @@ class CreateTasksTable extends Migration
             $table->bigInteger('user_id');
             $table->string('task_name');
             $table->string('task_description')->nullable();
-            $table->boolean('is_done');
+            $table->boolean('is_done')->nullable();
             $table->timestamps();
         });
     }

@@ -26,12 +26,12 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
     Route::resource('/user', 'UsersController', ['except' => ['show', 'create' , 'store']]); //Zorgt ervoor dat alle CRUD functies ge'rout' zijn.
 });
 
-Route::namespace("Tasklist")->middleware('can:manage-guests')->group(function(){
+Route::namespace("Tasklist")->middleware('can:manage-guests')->middleware('AuthResource')->group(function(){
     route::resource('/tasklist', 'TasklistsController');
     route::get('/tasklist/lists/load', 'TasklistsController@load')->name('tasklist.lists.load');
 });
 
-Route::namespace('Task')->middleware('can:manage-guests')->group(function(){
+Route::namespace('Task')->middleware('can:manage-guests')->middleware('AuthResource')->group(function(){
    route::resource('/task', 'TaskController');
    route::get('/task/index/{user_id}/{list_id}', 'TaskController@index')->name('task.index');
    route::put('/task/{task}', 'TaskController@update')->name('task.update');

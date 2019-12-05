@@ -17,7 +17,7 @@
                 <label for="edit_is_done" class="white">Voltooid:</label>
                 <input class="form-control d-inline-block" type="checkbox" name="edit_is_done" id="edit_is_done" @if($task[0]->is_done == 1) checked @endif>
             </div>
-            <input type="button" class="btn btn-primary float-left mr-4" value="Opslaan">
+            <button type="submit" class="btn btn-primary float-left mr-4">Opslaan</button>
         </form>
         <a href="{{ url('task/index/'. $task[0]->user_id .'/'. $task[0]->list_id) }}"><input type="button" class="btn btn-danger float-left" value="Terug"></a>
     </div>

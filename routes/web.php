@@ -35,7 +35,7 @@ Route::namespace('Task')->middleware('can:manage-guests')->middleware('AuthResou
    route::resource('/task', 'TaskController');
    route::get('/task/index/{user_id}/{list_id}', 'TaskController@index')->name('task.index');
    route::put('/task/{task}', 'TaskController@update')->name('task.update');
-
+   route::get('/task/lists/{list_id}', 'TaskController@load')->name('task.lists.load');
    route::delete('/task/{task}/{user_id}/{list_id}', 'TaskController@destroy')->name('task.destroy');
 });
 

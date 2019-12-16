@@ -77,7 +77,7 @@ $("document").ready(function(){
             dataType: 'text',
             type: 'POST',
             success: function (data) {
-                //$("#taskList").load();
+                $("#taskList").load('/task/lists/'+list_id);
             },
             error: function (data) {
                 alert('error');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Task;
 use App\Http\Controllers\Controller;
 use App\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -119,5 +120,18 @@ class TaskController extends Controller
     {
         Task::destroy($id);
         return redirect()->route('task.index', compact('user_id', 'list_id'));
+    }
+
+    public function load($list_id){
+        if (isset(Auth::user()->id)) {
+            $user_id = Auth::user()->id;
+            $tasks = Task::get_tasks_by_user_id_and_tasklist_id($user_id, $list_id);
+        }
+        else{
+            $user_id = null;
+            $lists = null;
+        }
+
+       return view('task/list', compact('tasks'));
     }
 }

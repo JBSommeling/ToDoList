@@ -13,7 +13,10 @@ class Task extends Model
     }
 
     public static function get_task($id){
-        $task = DB::table('tasks')->where('task_id', '=', $id)->get();
+        $task = DB::table('tasks')
+            ->where('task_id', '=', $id)
+            ->leftJoin('users', 'users.id','=','tasks.user_id')
+            ->get();
         return $task;
     }
 

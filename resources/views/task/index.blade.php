@@ -18,7 +18,7 @@
                             <td><a class="btn white" href="#">{{ $task->name }}</a></td>
                             <td><a class="btn white"  href="{{ route('task.edit', $task->task_id) }}">@if($task->is_done == 1) <strike>{{ $task->task_name }}</strike> @else {{$task->task_name}} @endif</a></td>
                             <td>
-                                <a class="btn" href=""><i class="far fa-eye white"></i></a>
+                                <a class="btn" href="{{ route('task.show', $task->task_id) }}"><i class="far fa-eye white"></i></a>
                                 <form action="{{ url('task/'.$task->task_id.'/'.$task->user_id.'/'.$task->list_id) }}" method="POST" class="float-right">
                                     @csrf
                                     {{method_field('DELETE')}}

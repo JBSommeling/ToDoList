@@ -42,7 +42,6 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role'); //User can have many Roles
     }
 
-    
     public function hasAnyRoles($roles){
         if($this->roles()->whereIn('name', $roles)->first()){ //Eloquent; checks if user has any roles
             return true;

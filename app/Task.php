@@ -32,6 +32,10 @@ class Task extends Model
         );
     }
 
+    public static function destroy_all_tasks_by_user($user_id){
+        DB::table('tasks')->where('user_id', '=', $user_id)->delete();
+    }
+
     public static function destroy($ids)
     {
         return DB::table('tasks')->where('task_id', '=', $ids)->delete();

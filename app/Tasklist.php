@@ -34,6 +34,10 @@ class Tasklist extends Model
         return DB::table('tasklists')->where('list_id', '=', $ids)->delete();
     }
 
+    public static function destroy_all_tasklists_by_user($user_id){
+        DB::table('tasklists')->where('user_id', '=', $user_id)->delete();
+    }
+
     public static function update_list($list_id, $list_name){
         DB::table('tasklists')
             ->where('list_id', $list_id)

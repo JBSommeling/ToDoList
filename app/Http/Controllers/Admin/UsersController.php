@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Task;
+use App\Tasklist;
 use App\User;
 use App\Role;
 use Gate;
@@ -25,6 +27,10 @@ class UsersController extends Controller
         return view('admin.users.index', compact('users'));
     }
 
+    public function show($user_id){
+        $lists = Tasklist::get_lists_by_user($user_id);
+        return view('admin.users.show', compact('lists'));
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -64,6 +70,8 @@ class UsersController extends Controller
         }
 
         $user->roles()->detach(); // removes all roles from the given user
+        Tasklist::destroy_all_tasklists_by_user($user->id);
+        Task::destroy_all_tasks_by_user($user->id);
         $user->delete();
 
         return redirect('/admin/user');

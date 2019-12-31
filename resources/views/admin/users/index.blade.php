@@ -21,7 +21,11 @@
                                 @foreach($users as $user)
                                 <tr>
                                     <th scope="row">{{$user->id}}</th>
-                                    <td>{{$user->name}}</td>
+                                    @if(\Illuminate\Support\Facades\Gate::check('edit-users'))
+                                        <td><a class="btn" href="{{ route('admin.user.show', $user->id )}}">{{$user->name}}</a></td>
+                                    @else
+                                        <td>{{$user->name}}</td>
+                                    @endif
                                     <td>{{$user->email}}</td>
                                     <td>{{implode(', ',$user->roles()->get()->pluck('name')->toArray()) }}</td>
                                     <td>

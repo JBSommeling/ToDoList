@@ -45,9 +45,11 @@ class Tasklist extends Model
     }
 
     public static function get_user_by_tasklist_id($id){
-        DB::table('tasklists')
+        $list =  DB::table('tasklists')
             ->where('list_id', $id)
             ->join('users', 'tasklists.user_id', '=', 'users.id')
             ->get();
+
+        return $list;
     }
 }

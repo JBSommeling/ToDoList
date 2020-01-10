@@ -62,9 +62,9 @@ class TasklistsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show($user_id){
+        $lists = Tasklist::get_lists_by_user($user_id);
+        return view('admin.tasklists.show', compact('lists'));
     }
 
     /**
@@ -113,7 +113,7 @@ class TasklistsController extends Controller
     {
         $result = Tasklist::get_list_by_id($list_id);
         Tasklist::destroy($list_id);
-        return redirect()->route('admin.user.show', $result[0]->id);
+        return redirect()->route('admin.tasklist.show', $result[0]->id);
     }
 
     public function load(){

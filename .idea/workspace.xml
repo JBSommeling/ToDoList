@@ -133,14 +133,15 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\ToDoList\resources\views\admin\tasklists" />
+      <recent name="C:\xampp\htdocs\ToDoList\app\Http\Controllers\Task" />
+      <recent name="C:\xampp\htdocs\todolist\app\Http\Controllers\Tasklist" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\todolist" />
       <recent name="C:\xampp\htdocs\framework" />
       <recent name="C:\xampp\htdocs\planningstool-3.0\resources\views\admin\users" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\ToDoList\app\Http\Controllers\Task" />
-      <recent name="C:\xampp\htdocs\todolist\app\Http\Controllers\Tasklist" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -204,7 +205,7 @@
       <workItem from="1577787858323" duration="577000" />
       <workItem from="1578388533474" duration="26000" />
       <workItem from="1578648470483" duration="2797000" />
-      <workItem from="1578660777419" duration="1271000" />
+      <workItem from="1578660777419" duration="4446000" />
     </task>
     <servers />
   </component>

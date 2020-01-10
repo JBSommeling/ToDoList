@@ -22,7 +22,7 @@
                                 <tr>
                                     <th scope="row">{{$user->id}}</th>
                                     @if(\Illuminate\Support\Facades\Gate::check('edit-users'))
-                                        <td><a class="btn" href="{{ route('admin.user.show', $user->id )}}">{{$user->name}}</a></td>
+                                        <td><a class="btn" href="{{ route('admin.tasklist.show', $user->id )}}">{{$user->name}}</a></td>
                                     @else
                                         <td>{{$user->name}}</td>
                                     @endif

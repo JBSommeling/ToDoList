@@ -25,6 +25,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/user', 'UsersController', ['except' => ['create' , 'store']]); //Zorgt ervoor dat alle CRUD functies ge'rout' zijn.
     Route::get('/user/{user}', 'UsersController@show')->name('user.show')->middleware('AuthAdmin');
+    Route::namespace("Tasklist")->group(function (){
+       Route::resource('/tasklist', 'TasklistsController');
+    });
 });
 
 Route::namespace("Tasklist")->middleware('can:manage-guests')->middleware('AuthResource')->group(function(){

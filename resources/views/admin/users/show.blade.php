@@ -24,7 +24,7 @@
                                     <td>{{$list->name}}</td>
                                     <td>{{$list->list_name}}</td>
                                     <td><a class="btn" href=""><i class="far fa-eye"></i></a>
-                                        <form action="{{ route('tasklist.destroy', $list->list_id) }}" method="POST" class="float-right">
+                                        <form action="{{ route('admin.tasklist.destroy', $list->list_id) }}" method="POST" class="float-right">
                                             @csrf
                                             {{method_field('DELETE')}}
                                             <button type="submit" onclick='return validate("lijst")' class="btn btn-warning"><i class="fas fa-trash-alt white"></i></button>

@@ -109,12 +109,11 @@ class TasklistsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($list_id)
     {
-        Tasklist::destroy($id);
-        $result = Tasklist::get_user_by_tasklist_id($id);
-        dd($result);
-        return redirect()->route('admin.user.show', $result->id);
+        $result = Tasklist::get_list_by_id($list_id);
+        Tasklist::destroy($list_id);
+        return redirect()->route('admin.user.show', $result[0]->id);
     }
 
     public function load(){

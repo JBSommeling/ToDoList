@@ -23,11 +23,11 @@
                                     <th scope="row">{{$task->task_id}}</th>
                                     <td>{{$task->name}}</td>
                                     <td>{{$task->task_name}}</td>
-                                    <td><a class="btn" href=""><i class="far fa-eye"></i></a>
-                                        <form action="{{ route('admin.tasklist.destroy', $task->list_id) }}" method="POST" class="float-right">
+                                    <td><a class="btn" href="{{ route('admin.task.show', $task->task_id) }}"><i class="far fa-eye"></i></a>
+                                        <form action="{{ url('admin/task/'.$task->task_id.'/'.$task->user_id.'/'.$task->list_id) }}" method="POST" class="float-right">
                                             @csrf
                                             {{method_field('DELETE')}}
-                                            <button type="submit" onclick='return validate("lijst")' class="btn btn-warning"><i class="fas fa-trash-alt white"></i></button>
+                                            <button type="submit" onclick='return validate("taak")' class="btn btn-warning"><i class="fas fa-trash-alt white"></i></button>
                                         </form></td>
                                 </tr>
                             @endforeach

@@ -30,6 +30,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
     });
     Route::namespace("Task")->group(function (){
         route::get('/task/index/{user_id}/{list_id}', 'TaskController@index')->name('task.index');
+        route::get('/task/{task_id}', 'TaskController@show')->name('task.show');
+        route::delete('/task/{task_id}/{user_id}/{list_id}', 'TaskController@destroy')->name('task.destroy');
     });
 });
 
@@ -41,6 +43,7 @@ Route::namespace("Tasklist")->middleware('can:manage-guests')->middleware('AuthR
 Route::namespace('Task')->middleware('can:manage-guests')->middleware('AuthResource')->group(function(){
    route::resource('/task', 'TaskController');
    route::get('/task/index/{user_id}/{list_id}', 'TaskController@index')->name('task.index');
+   route::get('/task/index/{user_id}/{list_id}/complete', 'TaskController@complete')->name('task.index.complete');
    route::put('/task/{task}', 'TaskController@update')->name('task.update');
    route::get('/task/lists/{list_id}', 'TaskController@load')->name('task.lists.load');
    route::delete('/task/{task}/{user_id}/{list_id}', 'TaskController@destroy')->name('task.destroy');

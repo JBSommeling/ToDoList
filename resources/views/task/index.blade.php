@@ -11,7 +11,7 @@
                     </thead>
                     <tbody>
                     <?php $count=1 ?>
-
+                    <p class="white">Sorteren op: <a  class="btn btn-warning" href="">Voltooid</a> <a class="btn btn-warning" href="">Onvoltooid</a></p>
                     @foreach($tasks as $task)
                         <tr>
                             <th scope="row">{{ $count }}</th>

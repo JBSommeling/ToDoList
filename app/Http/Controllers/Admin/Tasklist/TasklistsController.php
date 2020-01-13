@@ -17,90 +17,9 @@ class TasklistsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
-    {
-        $user_id = $request->user_id;
-        $list_name = $request->list_name;
-
-        $validatedData = $request->validate([
-            'list_name' => 'required'
-        ],
-            [
-                'list_name.required' => 'U moet een naam invoeren'
-            ]);
-
-        if ($validatedData){
-            Tasklist::create($list_name, $user_id);
-        }
-
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($user_id){
         $lists = Tasklist::get_lists_by_user($user_id);
         return view('admin.tasklists.show', compact('lists'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($list_id)
-    {
-        $tasklist = Tasklist::get_list_by_id($list_id);
-        return view('tasklist/edit', compact('tasklist'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $list_name = $request->edit_list_name;
-        $validatedData = $request->validate([
-            'edit_list_name' => 'required'
-        ],
-            [
-                'edit_list_name.required' => 'U moet een naam invoeren'
-            ]);
-
-        if ($validatedData) {
-            Tasklist::update_list($id, $list_name);
-            $feedback = 'edit_name_success';
-            return redirect()->route('home', compact('feedback'));
-        }
     }
 
     /**

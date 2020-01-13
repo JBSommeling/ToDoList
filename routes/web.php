@@ -28,6 +28,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
     Route::namespace("Tasklist")->group(function (){
        Route::resource('/tasklist', 'TasklistsController');
     });
+    Route::namespace("Task")->group(function (){
+        route::get('/task/index/{user_id}/{list_id}', 'TaskController@index')->name('task.index');
+    });
 });
 
 Route::namespace("Tasklist")->middleware('can:manage-guests')->middleware('AuthResource')->group(function(){

@@ -43,7 +43,7 @@ Route::namespace("Tasklist")->middleware('can:manage-guests')->middleware('AuthR
 Route::namespace('Task')->middleware('can:manage-guests')->middleware('AuthResource')->group(function(){
    route::resource('/task', 'TaskController');
    route::get('/task/index/{user_id}/{list_id}', 'TaskController@index')->name('task.index');
-   route::get('/task/index/{user_id}/{list_id}/complete', 'TaskController@complete')->name('task.index.complete');
+   route::get('/task/index/{user_id}/{list_id}/{sort}', 'TaskController@sort')->name('task.index.sort');
    route::put('/task/{task}', 'TaskController@update')->name('task.update');
    route::get('/task/lists/{list_id}', 'TaskController@load')->name('task.lists.load');
    route::delete('/task/{task}/{user_id}/{list_id}', 'TaskController@destroy')->name('task.destroy');

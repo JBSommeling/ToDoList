@@ -8,9 +8,26 @@ use Illuminate\Support\Facades\DB;
 class Task extends Model
 {
     public static function get_tasks_by_user_id_and_tasklist_id($user_id, $list_id){
-        $tasks = DB::select("SELECT * FROM `tasks` LEFT JOIN users ON tasks.user_id = tasks.user_id WHERE users.id = ? && list_id = ?", [$user_id, $list_id]);
+        $tasks = DB::select("SELECT * FROM `tasks` LEFT JOIN users ON tasks.user_id = users.id WHERE users.id = ? && list_id = ?", [$user_id, $list_id]);
         return $tasks;
     }
+
+    public static function get_tasks_by_user_id_and_tasklist_id_ORDERBY_complete($user_id, $list_id){
+        $tasks = DB::select("SELECT * FROM `tasks` LEFT JOIN users ON tasks.user_id = users.id WHERE users.id = ? && list_id = ? ORDER BY is_done DESC", [$user_id, $list_id]);
+        return $tasks;
+    }
+
+    public static function get_tasks_by_user_id_and_tasklist_id_ORDERBY_incomplete($user_id, $list_id){
+        $tasks = DB::select("SELECT * FROM `tasks` LEFT JOIN users ON tasks.user_id = users.id WHERE users.id = ? && list_id = ? ORDER BY is_done ASC", [$user_id, $list_id]);
+        return $tasks;
+    }
+
+    public static function get_tasks_by_user_id_and_tasklist_id_filter_by_is_done($user_id, $list_id, $is_done){
+        $tasks = DB::select("SELECT * FROM `tasks` LEFT JOIN users ON tasks.user_id = users.id WHERE users.id = ? && list_id = ? && is_done = ?", [$user_id, $list_id, $is_done]);
+        return $tasks;
+    }
+
+
 
     public static function get_task($id){
         $task = DB::table('tasks')
@@ -28,7 +45,7 @@ class Task extends Model
 
     public static function store($task_name, $user_id, $list_id, $task_description){
         $task = DB::table('tasks')->insert(
-            ['task_name' => $task_name, 'user_id' => $user_id, 'list_id' => $list_id, 'task_description' => $task_description]
+            ['task_name' => $task_name, 'user_id' => $user_id, 'list_id' => $list_id, 'task_description' => $task_description, 'is_done' => 0]
         );
     }
 

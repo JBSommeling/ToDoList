@@ -11,7 +11,16 @@
                     </thead>
                     <tbody>
                     <?php $count=1 ?>
-                    <p class="white">Sorteren op: <a  class="btn btn-warning" href="">Voltooid</a> <a class="btn btn-warning" href="">Onvoltooid</a></p>
+                    @if (!empty($tasks))
+                    <p class="white">Sorteren op:
+                        <a  class="btn btn-warning" href="{{ url('task/index/'.$tasks[0]->user_id.'/'.$tasks[0]->list_id.'/complete') }}">Voltooid</a>
+                        <a class="btn btn-warning" href="{{ url('task/index/'.$tasks[0]->user_id.'/'.$tasks[0]->list_id.'/incomplete') }}">Onvoltooid</a>
+                    </p>
+                    <p class="white">Filteren op:
+                        <a href="{{ url('task/index/'.$tasks[0]->user_id.'/'.$tasks[0]->list_id.'/filter_complete') }}" class="btn btn-success">Voltooid</a>
+                        <a class="btn btn-success" href="{{ url('task/index/'.$tasks[0]->user_id.'/'.$tasks[0]->list_id.'/filter_incomplete') }}">Onvoltooid</a>
+                    </p>
+                    @endif
                     @foreach($tasks as $task)
                         <tr>
                             <th scope="row">{{ $count }}</th>

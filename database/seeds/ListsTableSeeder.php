@@ -28,5 +28,10 @@ class ListsTableSeeder extends Seeder
             'list_name' => 'testlist3',
             'user_id' => '1'
         ]);
+
+        DB::table('Tasklists')->insert([
+            'list_name' => 'testlist4',
+            'user_id' => '3'
+        ]);
     }
 }

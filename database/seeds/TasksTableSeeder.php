@@ -46,6 +46,29 @@ class TasksTableSeeder extends Seeder
             'is_done' => false
         ]);
 
+        DB::table('tasks')->insert([
+            'list_id' => '4',
+            'user_id' => '3',
+            'task_name' => 'testtask',
+            'task_description' => 'testdescription',
+            'is_done' => true
+        ]);
+
+        DB::table('tasks')->insert([
+            'list_id' => '4',
+            'user_id' => '3',
+            'task_name' => 'testtask2',
+            'task_description' => 'testdescription',
+            'is_done' => true
+        ]);
+
+        DB::table('tasks')->insert([
+            'list_id' => '4',
+            'user_id' => '3',
+            'task_name' => 'testtask3',
+            'task_description' => 'testdescription',
+            'is_done' => false
+        ]);
 
     }
 }

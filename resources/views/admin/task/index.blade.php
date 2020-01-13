@@ -20,7 +20,7 @@
                             <tbody>
                             @foreach($tasks as $task)
                                 <tr>
-                                    <th scope="row">{{$task->list_id}}</th>
+                                    <th scope="row">{{$task->task_id}}</th>
                                     <td>{{$task->name}}</td>
                                     <td>{{$task->task_name}}</td>
                                     <td><a class="btn" href=""><i class="far fa-eye"></i></a>

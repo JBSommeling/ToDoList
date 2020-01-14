@@ -20,7 +20,8 @@ class TaskController extends Controller
     public function index($user_id, $list_id)
     {
         $tasks = Task::get_tasks_by_user_id_and_tasklist_id($user_id, $list_id);
-        return view('/task/index', compact('tasks', 'list_id'));
+        $btn = Task::get_tasks_by_user_id_and_tasklist_id($user_id, $list_id);
+        return view('/task/index', compact('tasks', 'list_id', 'btn'));
     }
 
     /**
@@ -139,19 +140,23 @@ class TaskController extends Controller
     public function sort($user_id, $list_id, $sort){
         if ($sort == 'complete') {
             $tasks = Task::get_tasks_by_user_id_and_tasklist_id_ORDERBY_complete($user_id, $list_id);
-            return view('/task/index', compact('tasks', 'list_id'));
+            $btn = Task::get_tasks_by_user_id_and_tasklist_id($user_id, $list_id);
+            return view('/task/index', compact('tasks', 'list_id', 'btn'));
         }
         elseif ($sort == 'incomplete'){
             $tasks = Task::get_tasks_by_user_id_and_tasklist_id_ORDERBY_incomplete($user_id, $list_id);
-            return view('/task/index', compact('tasks', 'list_id'));
+            $btn = Task::get_tasks_by_user_id_and_tasklist_id($user_id, $list_id);
+            return view('/task/index', compact('tasks', 'list_id', 'btn'));
         }
         elseif ($sort == 'filter_complete'){
             $tasks = Task::get_tasks_by_user_id_and_tasklist_id_filter_by_is_done($user_id, $list_id, 1);
-            return view('/task/index', compact('tasks', 'list_id'));
+            $btn = Task::get_tasks_by_user_id_and_tasklist_id($user_id, $list_id);
+            return view('/task/index', compact('tasks', 'list_id', 'btn'));
         }
         elseif ($sort == 'filter_incomplete'){
             $tasks = Task::get_tasks_by_user_id_and_tasklist_id_filter_by_is_done($user_id, $list_id, 0);
-            return view('/task/index', compact('tasks', 'list_id'));
+            $btn = Task::get_tasks_by_user_id_and_tasklist_id($user_id, $list_id);
+            return view('/task/index', compact('tasks', 'list_id', 'btn'));
         }
     }
 }

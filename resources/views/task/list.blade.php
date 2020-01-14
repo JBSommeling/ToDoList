@@ -14,6 +14,8 @@
             <a href="{{ url('task/index/'.$tasks[0]->user_id.'/'.$tasks[0]->list_id.'/filter_complete') }}" class="btn btn-success">Voltooid</a>
             <a class="btn btn-success" href="{{ url('task/index/'.$tasks[0]->user_id.'/'.$tasks[0]->list_id.'/filter_incomplete') }}">Onvoltooid</a>
         </p>
+        @else
+            <p class="white">U heeft geen (on)voltooide taken staan.</p>
         @endif
         @foreach($tasks as $task)
             <tr>
